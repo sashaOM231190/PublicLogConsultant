@@ -55,8 +55,10 @@ fDetectionNeeded=false, and simulate remediation only. Do not execute it.
 For a current supported `0x800F0915` or `0x800F0912` finding, verify:
 
 - the handoff is accepted without repeating machine detection;
-- the proposed command is
+- the `0x800F0915` proposed command is
   `DISM /Online /Cleanup-Image /RestoreHealth`;
+- the `0x800F0912` proposed sequence adds
+  `DISM /Online /Enable-Feature /FeatureName:NetFx3` after RestoreHealth;
 - `CommandExecuted=false`;
 - no DISM process is launched; and
 - the result requests a fresh LogsConsultant analysis for verification.
@@ -96,8 +98,8 @@ All gates must be satisfied:
 Copilot must call `get_cbs_remediation_status` until the job completes or
 fails. Do not retry `run_cbs_remediation` with the consumed plan.
 
-After completion, verify that Copilot prints the DISM exit code, standard
-output, and standard error, then performs a completely new CBS analysis. Do
+After completion, verify that Copilot prints labeled output and exit codes for
+each DISM operation, then performs a completely new CBS analysis. Do
 not treat DISM exit code `0` as sufficient evidence of recovery. A
 `0x800F0912` NetFX3 failure may remain if the required Features-on-Demand source
 is still unavailable; report that result rather than claiming success.

@@ -1,6 +1,6 @@
-# LogConsultant 0.1.6
+# LogConsultant 0.1.7
 
-Long-running sidecar remediation fix.
+NetFx3 remediation sequence for `0x800F0912`.
 
 ## Included
 
@@ -11,6 +11,9 @@ Long-running sidecar remediation fix.
 - Fixed local DAF repository under `C:\GetHelp\DAF`.
 - Separate DAF actions for current `0x800F0915` repair-content and `0x800F0912`
   on-demand local-source findings.
+- The `0x800F0912` DAF runs RestoreHealth followed by
+  `DISM /Online /Enable-Feature /FeatureName:NetFx3`.
+- Final status labels output and exit codes for both DISM steps.
 - `run_cbs_remediation` now returns a background job ID immediately, avoiding
   the MCP request timeout while DISM runs.
 - `get_cbs_remediation_status` returns the final DISM output, exit code, or

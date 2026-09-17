@@ -69,10 +69,16 @@ The lab repository contains separate actions for:
 0x800F0912 - CBS_E_ONDEMAND_LOCALSOURCE_NOT_FOUND
 ```
 
-Its fixed resolver plan is:
+The `0x800F0915` resolver runs:
 
 ```text
 DISM /Online /Cleanup-Image /RestoreHealth
+```
+
+The `0x800F0912` resolver runs RestoreHealth first and then:
+
+```text
+DISM /Online /Enable-Feature /FeatureName:NetFx3
 ```
 
 Other findings can still be analyzed, but unregistered findings do not receive

@@ -60,11 +60,17 @@ failure. If a supported current failure is found, prepare the Get Help handoff
 and simulate remediation only. Do not execute remediation.
 ```
 
-For the supported `0x800F0915` repair-content and `0x800F0912` on-demand
-local-source scenarios, the expected plan is:
+For `0x800F0915`, the expected plan is:
 
 ```text
 DISM /Online /Cleanup-Image /RestoreHealth
+```
+
+For `0x800F0912`, the DAF runs this sequence:
+
+```text
+DISM /Online /Cleanup-Image /RestoreHealth
+DISM /Online /Enable-Feature /FeatureName:NetFx3
 ```
 
 Simulation must report:
