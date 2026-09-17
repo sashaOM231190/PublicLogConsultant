@@ -1,0 +1,54 @@
+name: Lab feedback
+description: Report redacted results from a LogConsultant lab test
+title: "[Lab] "
+labels:
+  - lab-feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach customer logs, credentials, tokens, or other sensitive information.
+  - type: input
+    id: version
+    attributes:
+      label: LogConsultant version
+      placeholder: 0.1.3
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Execution mode
+      options:
+        - Analysis only
+        - Remediation simulation
+        - Isolated lab execution
+    validations:
+      required: true
+  - type: input
+    id: operating-system
+    attributes:
+      label: Windows edition and build
+      placeholder: Windows Server, build number
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: Redact machine names, paths, package identities, and customer information.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I removed logs, credentials, tokens, and sensitive customer information.
+          required: true
