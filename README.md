@@ -77,6 +77,10 @@ The two findings use separate action IDs and DAF packages. LogsConsultant still
 completes current and historical evidence analysis before creating either
 handoff. It does not offer HTTPS knowledge enrichment.
 
+Real DISM execution runs as a `get-help-side-car` background job. Copilot uses
+`get_cbs_remediation_status` to obtain the final output without exceeding the
+MCP request timeout.
+
 See [LAB-TESTING.md](LAB-TESTING.md) before enabling real lab execution.
 
 ## Important boundary

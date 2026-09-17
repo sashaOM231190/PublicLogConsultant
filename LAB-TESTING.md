@@ -24,9 +24,9 @@ $copilotHome = if ($env:COPILOT_HOME) {
 }
 
 Get-Content "$copilotHome\servers\logs-consultant\VERSION"
-Get-Content "$copilotHome\servers\get-help-cbs\VERSION"
+Get-Content "$copilotHome\servers\get-help-side-car\VERSION"
 Test-Path "$copilotHome\servers\logs-consultant\LogsConsultant.Mcp.exe"
-Test-Path "$copilotHome\servers\get-help-cbs\GetHelpCmd.LogsConsultant.exe"
+Test-Path "$copilotHome\servers\get-help-side-car\GetHelpCmd.LogsConsultant.exe"
 Get-ChildItem C:\GetHelp\DAF -Recurse
 ```
 
@@ -72,7 +72,6 @@ Real execution is for an isolated reproduction lab only. Start Copilot from an
 elevated PowerShell session:
 
 ```powershell
-$env:LOGS_CONSULTANT_ENABLE_LAB_REMEDIATION = '1'
 copilot
 ```
 
@@ -91,10 +90,13 @@ All gates must be satisfied:
 - current supported finding;
 - unchanged and unexpired handoff;
 - explicit user approval;
-- lab execution mode; and
-- `LOGS_CONSULTANT_ENABLE_LAB_REMEDIATION=1`.
+- lab execution mode.
 
-After execution, verify that Copilot prints the DISM exit code, standard
+`run_cbs_remediation` should return a job ID without waiting for DISM.
+Copilot must call `get_cbs_remediation_status` until the job completes or
+fails. Do not retry `run_cbs_remediation` with the consumed plan.
+
+After completion, verify that Copilot prints the DISM exit code, standard
 output, and standard error, then performs a completely new CBS analysis. Do
 not treat DISM exit code `0` as sufficient evidence of recovery. A
 `0x800F0912` NetFX3 failure may remain if the required Features-on-Demand source

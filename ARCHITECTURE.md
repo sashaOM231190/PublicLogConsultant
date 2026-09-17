@@ -33,7 +33,7 @@ GitHub Copilot CLI
 ├── mcp-config.json
 ├── servers
 │   ├── logs-consultant
-│   └── get-help-cbs
+│   └── get-help-side-car
 └── skills
     ├── cbs-servicing-analysis
     └── logs-consultant-get-help
@@ -55,7 +55,9 @@ C:\GetHelp\DAF
 6. Diagnosis and remediation approval are separate decisions.
 7. Remediation requires explicit approval; simulation remains available for a
    safe first test.
-8. A new CBS analysis is required after execution; a process exit code alone is
+8. Long-running DISM execution runs as a sidecar job. Copilot polls the job
+   status instead of holding one MCP request open.
+9. A new CBS analysis is required after execution; a process exit code alone is
    not servicing proof.
 
 ## Current packaged actions

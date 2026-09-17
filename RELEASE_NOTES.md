@@ -1,6 +1,6 @@
-# LogConsultant 0.1.5
+# LogConsultant 0.1.6
 
-Expanded local Get Help remediation coverage.
+Long-running sidecar remediation fix.
 
 ## Included
 
@@ -11,6 +11,13 @@ Expanded local Get Help remediation coverage.
 - Fixed local DAF repository under `C:\GetHelp\DAF`.
 - Separate DAF actions for current `0x800F0915` repair-content and `0x800F0912`
   on-demand local-source findings.
+- `run_cbs_remediation` now returns a background job ID immediately, avoiding
+  the MCP request timeout while DISM runs.
+- `get_cbs_remediation_status` returns the final DISM output, exit code, or
+  explicit failure.
+- Removed the environment-variable dependency. Explicit approval, Lab mode,
+  and elevation remain required.
+- Renamed the installed MCP server to `get-help-side-car`.
 - Public, anonymous release download and update path.
 - CBS analysis routes supported current findings to the local Get Help sidecar
   rather than offering HTTPS knowledge enrichment.
