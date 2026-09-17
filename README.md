@@ -70,7 +70,7 @@ For `0x800F0912`, the DAF runs this sequence:
 
 ```text
 DISM /Online /Cleanup-Image /RestoreHealth
-DISM /Online /Enable-Feature /FeatureName:NetFx3
+DISM /Online /Enable-Feature /FeatureName:NetFx3 /All
 ```
 
 Simulation must report:
@@ -86,6 +86,12 @@ handoff. It does not offer HTTPS knowledge enrichment.
 Real DISM execution runs as a `get-help-side-car` background job. Copilot uses
 `get_cbs_remediation_status` to obtain the final output without exceeding the
 MCP request timeout.
+
+The guided workflow uses visible phase markers:
+
+```text
+🟨 RUNNING   🟩 COMPLETED   🟧 ACTION REQUIRED   🟥 FAILED
+```
 
 See [LAB-TESTING.md](LAB-TESTING.md) before enabling real lab execution.
 

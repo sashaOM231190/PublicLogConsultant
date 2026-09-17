@@ -78,7 +78,7 @@ DISM /Online /Cleanup-Image /RestoreHealth
 The `0x800F0912` resolver runs RestoreHealth first and then:
 
 ```text
-DISM /Online /Enable-Feature /FeatureName:NetFx3
+DISM /Online /Enable-Feature /FeatureName:NetFx3 /All
 ```
 
 Other findings can still be analyzed, but unregistered findings do not receive

@@ -1,6 +1,6 @@
-# LogConsultant 0.1.7
+# LogConsultant 0.1.8
 
-NetFx3 remediation sequence for `0x800F0912`.
+NetFx3 `/All` remediation and phased console workflow.
 
 ## Included
 
@@ -12,8 +12,12 @@ NetFx3 remediation sequence for `0x800F0912`.
 - Separate DAF actions for current `0x800F0915` repair-content and `0x800F0912`
   on-demand local-source findings.
 - The `0x800F0912` DAF runs RestoreHealth followed by
-  `DISM /Online /Enable-Feature /FeatureName:NetFx3`.
+  `DISM /Online /Enable-Feature /FeatureName:NetFx3 /All`.
 - Final status labels output and exit codes for both DISM steps.
+- The earlier NetFx3 action/package is replaced by a new action ID and DAF
+  package version `0.3.0`.
+- Six numbered workflow phases use visible running, completed,
+  action-required, and failed markers.
 - `run_cbs_remediation` now returns a background job ID immediately, avoiding
   the MCP request timeout while DISM runs.
 - `get_cbs_remediation_status` returns the final DISM output, exit code, or

@@ -58,7 +58,7 @@ For a current supported `0x800F0915` or `0x800F0912` finding, verify:
 - the `0x800F0915` proposed command is
   `DISM /Online /Cleanup-Image /RestoreHealth`;
 - the `0x800F0912` proposed sequence adds
-  `DISM /Online /Enable-Feature /FeatureName:NetFx3` after RestoreHealth;
+  `DISM /Online /Enable-Feature /FeatureName:NetFx3 /All` after RestoreHealth;
 - `CommandExecuted=false`;
 - no DISM process is launched; and
 - the result requests a fresh LogsConsultant analysis for verification.
@@ -103,6 +103,9 @@ each DISM operation, then performs a completely new CBS analysis. Do
 not treat DISM exit code `0` as sufficient evidence of recovery. A
 `0x800F0912` NetFX3 failure may remain if the required Features-on-Demand source
 is still unavailable; report that result rather than claiming success.
+
+The workflow should display six numbered phases with amber running markers,
+green completed markers, an orange consent marker, and red failure markers.
 
 ## 6. Provide feedback
 
