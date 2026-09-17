@@ -72,6 +72,10 @@ Simulation must report:
 CommandExecuted=false
 ```
 
+The current DAF package does not support `0x800F0912`. For that finding,
+LogsConsultant completes the diagnosis and explicitly reports that the local
+Get Help sidecar was not invoked. It does not offer HTTPS knowledge enrichment.
+
 See [LAB-TESTING.md](LAB-TESTING.md) before enabling real lab execution.
 
 ## Important boundary

@@ -1,6 +1,6 @@
-# LogConsultant 0.1.3
+# LogConsultant 0.1.4
 
-Initial public lab preview.
+Local Get Help workflow correction.
 
 ## Included
 
@@ -11,6 +11,10 @@ Initial public lab preview.
 - Fixed local DAF repository under `C:\GetHelp\DAF`.
 - Simulation-first CBS repair-content workflow.
 - Public, anonymous release download and update path.
+- CBS analysis routes supported current findings to the local Get Help sidecar
+  rather than offering HTTPS knowledge enrichment.
+- Current `0x800F0912` findings remain analysis-only because no reviewed local
+  DAF action is registered for that scenario.
 
 ## Safety
 

@@ -64,6 +64,11 @@ For a current supported `0x800F0915` finding, verify:
 If the current machine does not contain the supported failure, analysis should
 still work, but no compatible remediation package should be offered.
 
+In particular, a current `0x800F0912`
+(`CBS_E_ONDEMAND_LOCALSOURCE_NOT_FOUND`) result is analysis-only in this
+release. The expected response is that no reviewed local DAF action is
+registered; HTTPS enrichment must not be offered.
+
 ## 5. Optional real lab execution
 
 Real execution is for an isolated reproduction lab only. Start Copilot from an
