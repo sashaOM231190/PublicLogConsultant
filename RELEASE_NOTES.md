@@ -1,6 +1,6 @@
-# LogConsultant 0.1.4
+# LogConsultant 0.1.5
 
-Local Get Help workflow correction.
+Expanded local Get Help remediation coverage.
 
 ## Included
 
@@ -9,12 +9,13 @@ Local Get Help workflow correction.
 - Self-contained Get Help CBS sidecar MCP server.
 - Copilot skills and MCP registration.
 - Fixed local DAF repository under `C:\GetHelp\DAF`.
-- Simulation-first CBS repair-content workflow.
+- Separate DAF actions for current `0x800F0915` repair-content and `0x800F0912`
+  on-demand local-source findings.
 - Public, anonymous release download and update path.
 - CBS analysis routes supported current findings to the local Get Help sidecar
   rather than offering HTTPS knowledge enrichment.
-- Current `0x800F0912` findings remain analysis-only because no reviewed local
-  DAF action is registered for that scenario.
+- Approved lab execution prints the DISM response and requires fresh CBS
+  analysis to establish whether the original signature remains.
 
 ## Safety
 

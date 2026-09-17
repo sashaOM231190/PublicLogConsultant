@@ -60,7 +60,8 @@ failure. If a supported current failure is found, prepare the Get Help handoff
 and simulate remediation only. Do not execute remediation.
 ```
 
-For the supported `0x800F0915` repair-content scenario, the expected plan is:
+For the supported `0x800F0915` repair-content and `0x800F0912` on-demand
+local-source scenarios, the expected plan is:
 
 ```text
 DISM /Online /Cleanup-Image /RestoreHealth
@@ -72,9 +73,9 @@ Simulation must report:
 CommandExecuted=false
 ```
 
-The current DAF package does not support `0x800F0912`. For that finding,
-LogsConsultant completes the diagnosis and explicitly reports that the local
-Get Help sidecar was not invoked. It does not offer HTTPS knowledge enrichment.
+The two findings use separate action IDs and DAF packages. LogsConsultant still
+completes current and historical evidence analysis before creating either
+handoff. It does not offer HTTPS knowledge enrichment.
 
 See [LAB-TESTING.md](LAB-TESTING.md) before enabling real lab execution.
 

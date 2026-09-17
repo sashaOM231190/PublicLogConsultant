@@ -53,17 +53,18 @@ C:\GetHelp\DAF
 4. The DAF action is selected through the installed catalog.
 5. The selected package is checked before execution.
 6. Diagnosis and remediation approval are separate decisions.
-7. Remediation defaults to simulation.
+7. Remediation requires explicit approval; simulation remains available for a
+   safe first test.
 8. A new CBS analysis is required after execution; a process exit code alone is
    not servicing proof.
 
-## Current packaged action
+## Current packaged actions
 
-The current lab package supports the CBS repair-content scenario associated
-with:
+The lab repository contains separate actions for:
 
 ```text
 0x800F0915 - CBS_E_REPAIR_CONTENT_MISSING
+0x800F0912 - CBS_E_ONDEMAND_LOCALSOURCE_NOT_FOUND
 ```
 
 Its fixed resolver plan is:
@@ -72,7 +73,7 @@ Its fixed resolver plan is:
 DISM /Online /Cleanup-Image /RestoreHealth
 ```
 
-Other findings can still be analyzed, but unsupported findings do not receive
+Other findings can still be analyzed, but unregistered findings do not receive
 a local remediation action.
 
 ## Production boundary

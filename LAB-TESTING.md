@@ -52,7 +52,7 @@ For the current supported finding, prepare the Get Help handoff, assess it with
 fDetectionNeeded=false, and simulate remediation only. Do not execute it.
 ```
 
-For a current supported `0x800F0915` finding, verify:
+For a current supported `0x800F0915` or `0x800F0912` finding, verify:
 
 - the handoff is accepted without repeating machine detection;
 - the proposed command is
@@ -61,13 +61,10 @@ For a current supported `0x800F0915` finding, verify:
 - no DISM process is launched; and
 - the result requests a fresh LogsConsultant analysis for verification.
 
-If the current machine does not contain the supported failure, analysis should
-still work, but no compatible remediation package should be offered.
-
-In particular, a current `0x800F0912`
-(`CBS_E_ONDEMAND_LOCALSOURCE_NOT_FOUND`) result is analysis-only in this
-release. The expected response is that no reviewed local DAF action is
-registered; HTTPS enrichment must not be offered.
+The two HRESULTs must resolve to separate action IDs and packages. If the
+current machine contains another failure, analysis should still work, but no
+compatible remediation package should be offered. HTTPS enrichment must not
+be offered.
 
 ## 5. Optional real lab execution
 
@@ -97,8 +94,11 @@ All gates must be satisfied:
 - lab execution mode; and
 - `LOGS_CONSULTANT_ENABLE_LAB_REMEDIATION=1`.
 
-After execution, request a completely new CBS analysis. Do not treat DISM exit
-code `0` as sufficient evidence of recovery.
+After execution, verify that Copilot prints the DISM exit code, standard
+output, and standard error, then performs a completely new CBS analysis. Do
+not treat DISM exit code `0` as sufficient evidence of recovery. A
+`0x800F0912` NetFX3 failure may remain if the required Features-on-Demand source
+is still unavailable; report that result rather than claiming success.
 
 ## 6. Provide feedback
 
