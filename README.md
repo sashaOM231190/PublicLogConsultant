@@ -66,10 +66,9 @@ For `0x800F0915`, the expected plan is:
 DISM /Online /Cleanup-Image /RestoreHealth
 ```
 
-For `0x800F0912`, the DAF runs this sequence:
+For `0x800F0912`, the DAF runs:
 
 ```text
-DISM /Online /Cleanup-Image /RestoreHealth
 DISM /Online /Enable-Feature /FeatureName:NetFx3 /All
 ```
 

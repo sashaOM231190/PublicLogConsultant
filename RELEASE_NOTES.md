@@ -1,6 +1,6 @@
-# LogConsultant 0.1.8
+# LogConsultant 0.1.9
 
-NetFx3 `/All` remediation and phased console workflow.
+NetFx3 `/All`-only remediation.
 
 ## Included
 
@@ -11,11 +11,12 @@ NetFx3 `/All` remediation and phased console workflow.
 - Fixed local DAF repository under `C:\GetHelp\DAF`.
 - Separate DAF actions for current `0x800F0915` repair-content and `0x800F0912`
   on-demand local-source findings.
-- The `0x800F0912` DAF runs RestoreHealth followed by
+- The `0x800F0912` DAF runs only
   `DISM /Online /Enable-Feature /FeatureName:NetFx3 /All`.
-- Final status labels output and exit codes for both DISM steps.
-- The earlier NetFx3 action/package is replaced by a new action ID and DAF
-  package version `0.3.0`.
+- RestoreHealth was removed from the NetFX3 DAF execution, simulation,
+  displayed plan, and verification text.
+- The existing action ID is retained for compatibility and the NetFX3 DAF
+  package version is `0.3.1`.
 - Six numbered workflow phases use visible running, completed,
   action-required, and failed markers.
 - `run_cbs_remediation` now returns a background job ID immediately, avoiding

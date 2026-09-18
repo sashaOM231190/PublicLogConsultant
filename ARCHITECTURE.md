@@ -75,7 +75,7 @@ The `0x800F0915` resolver runs:
 DISM /Online /Cleanup-Image /RestoreHealth
 ```
 
-The `0x800F0912` resolver runs RestoreHealth first and then:
+The `0x800F0912` resolver runs:
 
 ```text
 DISM /Online /Enable-Feature /FeatureName:NetFx3 /All
